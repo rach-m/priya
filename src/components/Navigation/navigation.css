@@ -1,0 +1,82 @@
+header{
+  display: flex;
+  border-bottom: 1px solid rgb(166,180,183);
+flex-direction: column;
+ margin: 0 5%;
+ color: rgb(88,101,106);
+ font-family: 'EB Garamond', serif;
+ font-size: 1.1rem
+}
+
+#top-row-container{
+  display: flex;
+  height: 15vh;
+   justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo{
+  max-height:30%;
+  max-width: auto;
+}
+
+#header-stacking-container{
+  display: flex;
+  flex-direction: column;
+ padding-right: 5%;
+ justify-content: space-between
+}
+
+#header-user-account{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 3%;
+}
+
+#search-bar{
+  display: flex;
+margin-top: 3%;
+}
+
+
+
+#sale-tag-line{
+  justify-content: center
+}
+
+
+ul{
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+
+#hidden-menu{
+  display: none
+}
+
+
+
+
+@media screen and (min-width: 1200px) {
+  header{
+    font-size: 1.3rem
+  }
+}
+
+@media screen and (max-width: 1000px) {
+ul, #header-stacking-container, #sale-tag-line{
+  display: none;
+}
+
+header{
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+
+
+}
