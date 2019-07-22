@@ -12,7 +12,7 @@ class App extends React.Component {
     <div>
 <Header></Header>
     <div>I am content</div>
-<Footer></Footer>
+{/* <Footer></Footer> */}
 </div>
   );
 }}

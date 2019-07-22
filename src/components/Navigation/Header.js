@@ -1,39 +1,57 @@
-import React from 'react'
+import React, { Component } from 'react'
 import logo from "../../assets/Priya_Logo.png"
 import "./navigation.css"
+import HamburgerMenu from 'react-hamburger-menu'
 
-let Header = () => {
-  let menu = "hidden-menu"
+class Header extends Component {
 
-function onResize() {
-    if (window.outerWidth < 1000){
-      menu = "collapsable-menu"
+  state = {
+    menu: "hidden-menu",
+    open: false,
+    nav: "do-not-show",
+    headerColor: "#ffffff"
+  }
+
+  componentDidMount() {
+    this.onResize()
+    window.addEventListener('resize', this.onResize)
+  }
+
+  onResize = () => {
+    if (window.outerWidth < 1000) {
+      this.setState({
+        menu: "collapsable-menu"
+      })
+    }
+    else {
+      this.setState({
+        menu: "hidden-menu"
+      })
     }
   }
-onResize()
 
 
-  return (
-    <header>
-      <div id = "top-row-container">
-      <img className="header-logo" src={logo} alt="logo for Priya a womens clothing company in a black thick font"></img>
-      <span id="sale-tag-line">Refer A Friend and <b>Get $20</b></span>
-     <div id = "header-stacking-container">
-      <div id="header-user-account">
-          <div>Welcome, User </div>
-          <span className = "mdi mdi-account-heart-outline"></span>
-          <span className= "mdi mdi-shopping"></span>
-      </div>
-          <form id="search-bar">
-          <input type = "text"></input>
-          <input type = "submit"></input>
-        </form>
-      </div>
-      </div>
-      <div id={menu}>
-          <span className = "mdi mdi-menu"></span>
-      </div>
-      <nav>
+  handleClick = () => {
+    if (this.state.nav === "do-not-show") {
+      this.setState({
+        open: !this.state.open,
+        nav: "show",
+        headerColor: "rgba(500, 0, 0, .1)"
+      })
+    }
+    else {
+      this.setState({
+        open: !this.state.open,
+        nav: "do-not-show",
+        headerColor: "#ffffff"
+      })
+    }
+  }
+
+  render() {
+    let nav;
+    if (this.state.nav === "show") {
+      nav = <nav id = "mobile-nav">
         <ul>
           <li>Tops</li>
           <li>Bottoms</li>
@@ -42,9 +60,58 @@ onResize()
           <li>Specials</li>
         </ul>
       </nav>
-    </header>
-  )
+    }
+    else {
+      nav = ""
+    }
 
+    return (
+      <div id = "header" style = {{background: this.state.headerColor}}>
+      <header className={this.state.nav}>
+        <div id="top-row-container">
+          <img className="header-logo" src={logo} alt="logo for Priya a womens clothing company in a black thick font"></img>
+          <span id="sale-tag-line">Refer A Friend and <b>Get $20</b></span>
+          <div id="header-stacking-container">
+            <div id="header-user-account">
+              <div>Welcome, User </div>
+              <span className="mdi mdi-account-heart-outline"></span>
+              <span className="mdi mdi-shopping"></span>
+            </div>
+            <form id="search-bar">
+              <input type="text"></input>
+              <input type="submit"></input>
+            </form>
+          </div>
+          <div className={this.state.menu}>
+            {/* <span onClick = {this.handleHamburgerClick} className="mdi mdi-menu"></span> */}
+            <HamburgerMenu
+              isOpen={this.state.open}
+              menuClicked={this.handleClick}
+              width={18}
+              height={15}
+              strokeWidth={1}
+              rotate={0}
+              color='black'
+              borderRadius={0}
+              animationDuration={0.5}
+            />
+          </div>
+
+        </div>
+        <nav id = "nav">
+          <ul>
+            <li>Tops</li>
+            <li>Bottoms</li>
+            <li>Jewelry</li>
+            <li>Shoes</li>
+            <li>Specials</li>
+          </ul>
+        </nav>
+        {nav}
+      </header>
+      </div>
+    )
+  }
 }
 
 export default Header
