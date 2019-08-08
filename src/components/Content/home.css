@@ -1,0 +1,79 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+    grid-template-areas: "A A" "B C" "B C" "D C";
+    grid-gap: 5px;
+ font-family: 'EB Garamond', serif;
+
+}
+
+.A {
+    grid-area: A;
+    width: 90%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    margin: 0 auto
+}
+
+.B {
+    grid-area: B;
+    width: 90%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    margin-left: 10%;
+}
+
+.C {
+    grid-area: C;
+    width: 90%;
+    height: auto;
+    display: block;
+    /* object-fit: cover; */
+    margin-right: 10%;
+}
+
+.D {
+    grid-area: D;
+    background-color: rgb(221, 209, 196);
+    height: 78%;
+    width: 90%;
+    margin-left: 10%;
+
+}
+
+#email-signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h5{
+    font-size: 25px;
+    margin: 0;
+}
+
+h6{
+    font-size: 15px;
+    margin: 1%;
+}
+
+.mdi-email-outline{
+    font-size: 175px;
+}
+
+input{
+    border: 3px solid black;
+    padding: 15px;
+}
+
+button{
+    color: white;
+    background: black;
+    border-radius: 0;
+ font-family: 'EB Garamond', serif;
+ font-size: 15px;
+ padding: 15px;
+}

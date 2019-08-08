@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Navigation/Header"
 import Footer from "./components/Navigation/Footer"
+import Home from "./components/Content/Home"
 class App extends React.Component {
  onResize = () => this.forceUpdate()
 
@@ -11,8 +12,8 @@ class App extends React.Component {
   return (
     <div>
 <Header></Header>
-    <div>I am content</div>
-{/* <Footer></Footer> */}
+    <Home></Home>
+<Footer></Footer>
 </div>
   );
 }}

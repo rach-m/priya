@@ -67,7 +67,7 @@ class Header extends Component {
 
     return (
       <div id = "header" style = {{background: this.state.headerColor}}>
-      <header className={this.state.nav}>
+      <header className = {this.state.nav}>
         <div id="top-row-container">
           <img className="header-logo" src={logo} alt="logo for Priya a womens clothing company in a black thick font"></img>
           <span id="sale-tag-line">Refer A Friend and <b>Get $20</b></span>
@@ -98,8 +98,8 @@ class Header extends Component {
           </div>
 
         </div>
-        <nav id = "nav">
-          <ul>
+          <nav id="nav">
+            <ul >
             <li>Tops</li>
             <li>Bottoms</li>
             <li>Jewelry</li>
