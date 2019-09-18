@@ -52,12 +52,12 @@ class Header extends Component {
     let nav;
     if (this.state.nav === "show") {
       nav = <nav id = "mobile-nav">
-        <ul>
-          <li>Tops</li>
-          <li>Bottoms</li>
-          <li>Jewelry</li>
-          <li>Shoes</li>
-          <li>Specials</li>
+        <ul >
+          <li onClick={() => this.props.onNavigationalClick("tops")}>Tops</li>
+          <li onClick={() => this.props.onNavigationalClick("bottoms")}>Bottoms</li>
+          <li onClick={() => this.props.onNavigationalClick("jewelry")}>Jewelry</li>
+          <li onClick={() => this.props.onNavigationalClick("shoes")}>Shoes</li>
+          <li onClick={() => this.props.onNavigationalClick("sale")}>Specials</li>
         </ul>
       </nav>
     }
@@ -69,7 +69,7 @@ class Header extends Component {
       <div id = "header" style = {{background: this.state.headerColor}}>
       <header className = {this.state.nav}>
         <div id="top-row-container">
-          <img className="header-logo" src={logo} alt="logo for Priya a womens clothing company in a black thick font"></img>
+          <img onClick = {this.props.onLogoClick}className="header-logo" src={logo} alt="logo for Priya a womens clothing company in a black thick font"></img>
           <span id="sale-tag-line">Refer A Friend and <b>Get $20</b></span>
           <div id="header-stacking-container">
             <div id="header-user-account">
@@ -100,11 +100,11 @@ class Header extends Component {
         </div>
           <nav id="nav">
             <ul >
-            <li>Tops</li>
-            <li>Bottoms</li>
-            <li>Jewelry</li>
-            <li>Shoes</li>
-            <li>Specials</li>
+            <li onClick = {()=>this.props.onNavigationalClick("tops")}>Tops</li>
+              <li onClick={() => this.props.onNavigationalClick("bottoms")}>Bottoms</li>
+              <li onClick={() => this.props.onNavigationalClick("jewelry")}>Jewelry</li>
+              <li onClick={() => this.props.onNavigationalClick("shoes")}>Shoes</li>
+              <li onClick={() => this.props.onNavigationalClick("sale")}>Specials</li>
           </ul>
         </nav>
         {nav}

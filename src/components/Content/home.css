@@ -5,7 +5,6 @@
     grid-template-areas: "A A" "B C" "B C" "D C";
     grid-gap: 5px;
  font-family: 'EB Garamond', serif;
-
 }
 
 .A {
@@ -14,7 +13,8 @@
     height: auto;
     display: block;
     object-fit: cover;
-    margin: 0 auto
+    margin: 0 auto;
+    background-image: url(../../assets/banner.png)
 }
 
 .B {
@@ -24,21 +24,23 @@
     display: block;
     object-fit: cover;
     margin-left: 10%;
+    background-image: url(../../assets/jewelry-banner.png)
 }
 
 .C {
     grid-area: C;
     width: 90%;
-    height: auto;
+    height: 100%;
     display: block;
-    /* object-fit: cover; */
+     object-fit: cover;
     margin-right: 10%;
+   background-image: url(../../assets/shoe-banner.png)
 }
 
 .D {
     grid-area: D;
     background-color: rgb(221, 209, 196);
-    height: 78%;
+    height: 100%;
     width: 90%;
     margin-left: 10%;
 
@@ -69,11 +71,79 @@ input{
     padding: 15px;
 }
 
-button{
+.A, .B, .C{
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.button-normal{
+    width: 100px;
+    height: 50px;
+    background-color: lightpink;
     color: white;
-    background: black;
-    border-radius: 0;
- font-family: 'EB Garamond', serif;
- font-size: 15px;
- padding: 15px;
+    border: none;
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    position: relative;
+    top: -105px;
+    left: 550px;
+}
+
+.button-normal:nth-child(2){
+    left: 30px;
+    top: 0px
+}
+
+
+@media (max-width: 1200px){
+    .grid-container{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+    .A{
+        width: 100vw;
+        height: 200px;
+        background-size:100vw;
+         height: 0;
+        padding-top: 45%;
+    }
+    .B, .C{
+        background-size: 100vw;
+         width: 100%;
+        height: 0;
+        padding-top: 80%;
+        margin: 0;
+
+    }
+    .C{
+        margin-top: 20px
+    }
+    .D{
+         width: 100%;
+        height: 100%;
+        margin: 0;
+        margin-top: 20px
+
+    }
+    h5{
+    font-size: 15px;
+    margin: 0;
+}
+
+h6{
+    font-size: 10px;
+    margin: 1%;
+}
+
+.mdi-email-outline{
+    font-size: 100px;
+}
+input{
+    border: 3px solid black;
+    padding: 8px;
+}
+
+
 }
